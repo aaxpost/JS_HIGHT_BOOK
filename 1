@@ -1,0 +1,29 @@
+8 Чтение свойств из CSS файлов в JavaScript
+
+Свойства, заданные в CSS файле, можно прочитать с помощью специальной функции getComputedStyles.
+
+"use strict"
+//
+let parent = document.querySelector('#parent');
+let btn1 = document.querySelector('.btn1');
+// let btn2 = document.querySelector('.btn2');
+let elem = document.querySelector('#elem');
+let computedStyle = getComputedStyle(elem);
+
+btn1.addEventListener('click', function () {
+  // parent.style.cssText = `border-color: red; height: 600px;`;
+  // let p = document.createElement('p');
+  let height = computedStyle.height;
+  let width = computedStyle.width;
+  elem.style.height = (parseInt(height) * 2) + 'px';
+  elem.style.width = (parseInt(width) * 2) + 'px';
+  // parent.appendChild(p);
+  console.log(elem.style.height);
+});
+
+
+// btn2.addEventListener('click', function () {
+  // parent.style.borderColor = '';
+// });
+
+console.log(elem.style.color); // выведет ''
